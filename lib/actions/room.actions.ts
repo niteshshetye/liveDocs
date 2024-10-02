@@ -79,3 +79,13 @@ export const updateDocument = async ({
     console.log(`Error: while updating title => ${error}`);
   }
 };
+
+export const getDocumentList = async (email: string) => {
+  try {
+    const rooms = await liveblocks.getRooms({ userId: email });
+
+    return parseStringify(rooms);
+  } catch (error) {
+    console.log(`Error: while getting document list => ${error}`);
+  }
+};

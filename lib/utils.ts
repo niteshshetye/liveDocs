@@ -22,7 +22,7 @@ export const getAccessType = (userType: UserType) => {
   }
 };
 
-export const dateConverter = (timestamp: string): string => {
+export const dateConverter = (timestamp: Date): string => {
   const timestampNum = Math.round(new Date(timestamp).getTime() / 1000);
   const date: Date = new Date(timestampNum * 1000);
   const now: Date = new Date();
