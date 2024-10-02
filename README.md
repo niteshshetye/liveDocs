@@ -46,5 +46,5 @@ npx create-next-app@latest . --typescript --tailwind --eslint
 2. Initilazied shadcn-ui
 
 ```
-npx shadcd-ui@latest init
+npx shadcn@latest init
 ```
