@@ -19,7 +19,7 @@ export const getClerkUsers = async ({ userIds }: { userIds: string[] }) => {
 
     const sortedUsers = userIds.map((email) =>
       users.find((user) => user.email === email)
-    );
+    ) as User[];
     return parseStringify(sortedUsers);
   } catch (error) {
     console.log(`Error: while getting clerk users list => ${error}`);
