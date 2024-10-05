@@ -73,8 +73,7 @@ export default function ToolbarPlugin() {
       }),
       editor.registerCommand(
         SELECTION_CHANGE_COMMAND,
-        (payload, newEditor) => {
-          console.log(payload, newEditor); // TODO: remove latter
+        () => {
           $updateToolbar();
           return false;
         },

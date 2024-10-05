@@ -20,6 +20,7 @@ import Theme from "./plugins/Theme";
 import Loader from "../Loader";
 import { useThreads } from "@liveblocks/react/suspense";
 import Comments from "../Comments";
+import { DeleteModal } from "../DeleteModal";
 
 // Catch any errors that occur during Lexical updates and log them
 // or throw them as needed. If you don't throw them, Lexical will
@@ -34,7 +35,7 @@ function Placeholder() {
   return <div className="editor-placeholder">Enter some rich text...</div>;
 }
 
-export function Editor({ currentUserType }: EditorProps) {
+export function Editor({ roomId, currentUserType }: EditorProps) {
   const status = useEditorStatus();
   const { threads } = useThreads();
 
@@ -54,8 +55,7 @@ export function Editor({ currentUserType }: EditorProps) {
       <div className="editor-container size-full">
         <div className="toolbar-wrapper flex min-w-full justify-between">
           <ToolbarPlugin />
-          {/* TODO: we will combak here latter */}
-          {/* {currentUserType === 'editor' ? <DeleteModal roomid={roomId} />} */}
+          {currentUserType === "editor" && <DeleteModal roomId={roomId} />}
         </div>
 
         <div className="editor-wrapper flex flex-col items-center justify-start">
