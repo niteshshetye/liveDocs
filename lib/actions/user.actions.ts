@@ -13,7 +13,7 @@ export const getClerkUsers = async ({ userIds }: { userIds: string[] }) => {
     const users = data.map((user) => ({
       id: user.id,
       email: user.emailAddresses[0].emailAddress,
-      name: `${user.firstName} ${user.lastName}`,
+      name: `${user.firstName || ""} ${user.lastName || ""}`.trim(),
       avatar: user.imageUrl,
       color: getRandomColor(),
     }));

@@ -16,15 +16,14 @@ const Collaborator = ({
 }: CollaboratorProps) => {
   const [userType, setUserType] = useState(collaborator.userType || "viewer");
   const [loading, setLoading] = useState(false);
-
-  const shareDocumentHandler = async (type: string) => {
+  const shareDocumentHandler = async (type: UserType) => {
     setLoading(true);
 
     try {
       await updateDocumentAccess({
         roomId,
         email,
-        userType,
+        userType: type,
         updatedBy: user,
       });
     } catch (error) {
