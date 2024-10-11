@@ -21,6 +21,8 @@ const Documents = async ({ params: { id } }: SearchParamProps) => {
 
   const usersData = users?.map((user: User) => ({
     ...user,
+    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+    // @ts-expect-error
     userType: room.usersAccesses[user?.email || ""].includes("room:write")
       ? ("editor" as UserType)
       : ("viewer" as UserType),
@@ -28,6 +30,8 @@ const Documents = async ({ params: { id } }: SearchParamProps) => {
 
   const currentUserType: UserType = room.usersAccesses[
     clerkUser.emailAddresses[0].emailAddress
+    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+    // @ts-expect-error
   ]?.includes("room:write")
     ? "editor"
     : "viewer";
